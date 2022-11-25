@@ -196,7 +196,7 @@ namespace BossDamageTracker
             public void AnnounceResults()
             {
                 var ordered = character_to_damage.OrderByDescending(key => key.Value);
-                string results = $"={bossGroup.bestObservedName}";
+                string results = $"=玩家对头目" + this.bossGroup.bestObservedName + "的伤害排行榜";
 
                 int currentPlace = 1;
                 float everyoneElseDamage = 0;
@@ -205,7 +205,7 @@ namespace BossDamageTracker
                 foreach (var result in ordered)
                 {
                     //Chat.AddMessage($"{currentPlace}");
-                    string name = "???";
+                    string name = "其他";
                     if (currentPlace <= cfgPlaces.Value)
                     {
                         //Chat.AddMessage("placeCheck");
@@ -246,7 +246,7 @@ namespace BossDamageTracker
                 if (everyoneElseDamage > 0)
                 {
                     var everyoneElsePercentage = (everyoneElseDamage / totalDamageDealt) * 100;
-                    results += $"\n({currentPlace}) <style=cIsUtility>The Rest</style> - <style=cIsDamage>{everyoneElseDamage}</style> ({everyoneElsePercentage:F2}%)";
+                    results += $"\n({currentPlace}) <style=cIsUtility>其他</style> - <style=cIsDamage>{everyoneElseDamage}</style> ({everyoneElsePercentage:F2}%)";
                 }
                 Chat.SendBroadcastChat(new Chat.SimpleChatMessage()
                 {
