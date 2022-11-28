@@ -196,7 +196,7 @@ namespace BossDamageTracker
             public void AnnounceResults()
             {
                 var ordered = character_to_damage.OrderByDescending(key => key.Value);
-                string results = $"=玩家对头目" + this.bossGroup.bestObservedName + "的伤害排行榜";
+                string results = $"玩家对头目" + this.bossGroup.bestObservedName + "的伤害排行榜";
 
                 int currentPlace = 1;
                 float everyoneElseDamage = 0;
